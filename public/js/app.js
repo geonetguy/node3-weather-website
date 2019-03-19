@@ -13,7 +13,8 @@ weatherForm.addEventListener('submit', (e)=>{
     messageTwo.textContent=''
     const location = search.value
     console.log(location)
-    const url = 'http://localhost:3000/weather?address=' + location
+    //url is shortend to reflect the domain may be local or heroku
+    const url = '/weather?address=' + location
     fetch(url).then((response)=>{
         response.json().then((data)=>{
             if(data.error){

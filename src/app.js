@@ -1,10 +1,12 @@
 const path = require('path')
 const express = require('express')
-const app = express()
 const hbs = require('hbs')
 const forecast = require('./utils/forecast')
 const geocode = require('./utils/geocode')
 
+const app = express()
+//get the heroku port or use 3000
+const port = process.env.PORT || 3000
 
 //customize the web server with paths
 const publicFolder = path.join(__dirname, '../public')
@@ -94,6 +96,6 @@ app.get('*', (req, res) =>{
         error: 'Page not found'
     })
 })
-app.listen(3000, () => {
-    console.log('Server is up on port 3000')
+app.listen(port, () => {
+    console.log('Server is up on port ' + port)
 })
