@@ -22,11 +22,11 @@ const forecast = (latitude, longitude, callback) =>{
          const tempLow = body.daily.data[0].temperatureLow
           //good data returned
           if(!chanceRain){
-             currentForcast = `${dailySummary} \\n The temperature is ${temperature} degrees with a ${chanceRain}% chance of precipitation.
-                              \\n The high today will be ${tempHi} degrees with a low of ${tempLow} degrees`
+             currentForcast = `${dailySummary} The temperature is ${temperature} degrees with a ${chanceRain}% chance of precipitation.
+                              The high today will be ${tempHi} degrees with a low of ${tempLow} degrees`
           }else{
-            currentForcast = `${dailySummary}  \n The temperature is ${temperature} degrees with a ${chanceRain}% chance of ${precipType}.
-                              \nThe high today will be ${tempHi} degrees with a low of ${tempLow} degrees.`
+            currentForcast = `${dailySummary}  The temperature is ${temperature} degrees with a ${chanceRain}% chance of ${precipType}.
+                              The high today will be ${tempHi} degrees with a low of ${tempLow} degrees.`
           }
           callback(undefined,currentForcast)
        }
