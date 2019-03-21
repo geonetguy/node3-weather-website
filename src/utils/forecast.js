@@ -18,11 +18,15 @@ const forecast = (latitude, longitude, callback) =>{
          const chanceRain = parseInt((body.currently.precipProbability)*100)
          const precipType = body.currently.precipType
          const dailySummary= body.daily.data[0].summary
+         const tempHi = body.daily.data[0].temperatureHigh
+         const tempLow = body.daily.data[0].temperatureLow
           //good data returned
           if(!chanceRain){
-             currentForcast = `${dailySummary} The temperature is ${temperature} degrees with a ${chanceRain}% chance of precipitation`
+             currentForcast = `${dailySummary} \\n The temperature is ${temperature} degrees with a ${chanceRain}% chance of precipitation.
+                              \\n The high today will be ${tempHi} degrees with a low of ${tempLow} degrees`
           }else{
-            currentForcast = `${dailySummary} The temperature is ${temperature} degrees with a ${chanceRain}% chance of ${precipType}.`
+            currentForcast = `${dailySummary}  \n The temperature is ${temperature} degrees with a ${chanceRain}% chance of ${precipType}.
+                              \nThe high today will be ${tempHi} degrees with a low of ${tempLow} degrees.`
           }
           callback(undefined,currentForcast)
        }
